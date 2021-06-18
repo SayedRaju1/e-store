@@ -1,0 +1,14 @@
+.banner-img-div {
+    background-image: url("../../images//banner.jpg");
+    /* The image used */
+    background-color: #cccccc;
+    /* Used if the image is unavailable */
+    height: 500px;
+    /* You must set a specified height */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 75vh;
+    width: 100vw;
+    /* margin: 0px -2px 0px -2px; */
+}
