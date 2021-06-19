@@ -3,7 +3,7 @@
         "_id": "b55be95c-49f2-48ce-b245-e1c3b3dcaf1c",
         "name": "Spoonbill, european",
         "category": "drowlands0",
-        "price": "$4.19",
+        "price": 119,
         "featured": false,
         "img_main": "https://i.ibb.co/s6ZsJQY/DRE40-01-78409-1617769510.jpg",
         "img_curve": "https://i.ibb.co/2jXsyyh/DRE40-05-97598-1617769493.jpg"
@@ -12,7 +12,7 @@
         "_id": "a75dd3a1-9fbd-400e-b888-2474268e40b6",
         "name": "Striped skunk",
         "category": "gavon1",
-        "price": "$5.28",
+        "price": 99,
         "featured": false,
         "img_main": "https://i.ibb.co/my9xn8H/KNI06-BONE-01-08126-1623806669.jpg",
         "img_curve": "https://i.ibb.co/fHZwQdG/KNI06-BONE-05-90593-1623806669.jpg"
@@ -21,7 +21,7 @@
         "_id": "2cedc9bf-9b43-435a-bd93-283f6f2e109f",
         "name": "Eastern dwarf mongoose",
         "category": "ileas2",
-        "price": "$5.49",
+        "price": 129,
         "featured": false,
         "img_main": "https://i.ibb.co/tp2pqfK/DRE16-01-50129-1623805131.jpg",
         "img_curve": "https://i.ibb.co/VYbTMQx/DRE16-05-49642-1623805131.jpg"
@@ -30,7 +30,7 @@
         "_id": "e4520793-af24-4ab1-ab6e-aa80ae1e873b",
         "name": "Ornate rock dragon",
         "category": "emaddock3",
-        "price": "$6.06",
+        "price": 79,
         "featured": false,
         "img_main": "https://i.ibb.co/KwKQkk0/KNI20-SALMON-01-65647-1612932551.jpg",
         "img_curve": "https://i.ibb.co/Fq09Kp8/KNI20-SALMON-05-53543-1612932540.jpg"
@@ -39,7 +39,7 @@
         "_id": "65462023-f420-4daf-b832-7da457fbbbdd",
         "name": "Tortoise, asian foreset",
         "category": "flindegard4",
-        "price": "$8.62",
+        "price": 99,
         "featured": false,
         "img_main": "https://i.ibb.co/rtvMhsV/TOP19-BROWN-STRIPE-01-41863-1623807427.jpg",
         "img_curve": "https://i.ibb.co/61cqhWj/TOP19-BROWN-STRIPE-05-65482-1623807427.jpg"
@@ -48,7 +48,7 @@
         "_id": "e543554e-abe4-4df4-b058-33df7dfbdf03",
         "name": "Gull, silver",
         "category": "bbrydson5",
-        "price": "$1.56",
+        "price": 49,
         "featured": false,
         "img_main": "https://i.ibb.co/qp53Dsw/OUT09-01-04945-1617771223.jpg",
         "img_curve": "https://i.ibb.co/NVg2YcC/OUT09-05-65585-1617771194.jpg"
@@ -57,7 +57,7 @@
         "_id": "827cc8ba-a9be-4450-9938-943e8695898c",
         "name": "Paca",
         "category": "bhollindale6",
-        "price": "$4.69",
+        "price": 98,
         "featured": false,
         "img_main": "https://i.ibb.co/93tbnv1/H52-B-01-00588-1613706461.jpg",
         "img_curve": "https://i.ibb.co/n6T3jSy/H52-B-05-46857-1613706453.jpg"
@@ -66,7 +66,7 @@
         "_id": "76b6aaa0-efed-43d2-b86d-87501aa0fa91",
         "name": "Arctic tern",
         "category": "eshepherd7",
-        "price": "$0.74",
+        "price": 139,
         "featured": false,
         "img_main": "https://i.ibb.co/zrxDPX3/DRE41-Turquoise-01-76392-1612935041.jpg",
         "img_curve": "https://i.ibb.co/mydLXK6/DRE41-Turquoise-05-53663-1612935034.jpg"
@@ -75,7 +75,7 @@
         "_id": "feda1671-c778-4422-9259-10f1b63774ec",
         "name": "White-browed owl",
         "category": "telsdon8",
-        "price": "$6.73",
+        "price": 109,
         "featured": true,
         "img_main": "https://i.ibb.co/720Mc20/H75-01-86833-1613706766.jpg",
         "img_curve": "https://i.ibb.co/W5YPG71/H75-05-10857-1613706759.jpg"
@@ -84,7 +84,7 @@
         "_id": "e9117869-bad5-4537-bc5c-8b142053614c",
         "name": "Magistrate black colobus",
         "category": "sorgill9",
-        "price": "$5.28",
+        "price": 56,
         "featured": false,
         "img_main": "https://i.ibb.co/YB6QL66/DRE29-01-83355-1617778375.jpg",
         "img_curve": "https://i.ibb.co/3BbThkR/DRE29-05-52823-1617768082.jpg"
@@ -93,7 +93,7 @@
         "_id": "f1e91c0b-cbea-496e-a76b-5955f60fa0f0",
         "name": "Olive baboon",
         "category": "smackinnona",
-        "price": "$5.19",
+        "price": 89,
         "featured": true,
         "img_main": "https://i.ibb.co/Rzh9BWN/Crops-Selects-Artboards-01-02316-1615252036.png",
         "img_curve": "https://i.ibb.co/bmJzZ4K/Crops-Selects-Artboards-05-63401-1615251983.jpg"
@@ -102,7 +102,7 @@
         "_id": "9687d1d5-45f6-4001-9a8b-856a20c4254c",
         "name": "Golden brush-tailed possum",
         "category": "lcheccuccib",
-        "price": "$6.75",
+        "price": 38,
         "featured": false,
         "img_main": "https://i.ibb.co/k6vSRJJ/LB-2-97277-1602114796.jpg",
         "img_curve": "https://i.ibb.co/tsG5LMr/C-98235-1602114794.jpg"
@@ -111,7 +111,7 @@
         "_id": "d587b0c7-eaab-4a6f-9467-d3ebfb72a2cf",
         "name": "Manatee",
         "category": "jdeyenhardtc",
-        "price": "$8.67",
+        "price": 10,
         "featured": true,
         "img_main": "https://i.ibb.co/P61zdz5/BT-AW21-DRE55-01-27446-1612934369.jpg",
         "img_curve": "https://i.ibb.co/BV33x9T/BT-AW21-DRE55-05-10072-1612934360.jpg"
@@ -120,7 +120,7 @@
         "_id": "444e9a6b-5832-4804-922b-8de092c1e001",
         "name": "African fish eagle",
         "category": "hkohringd",
-        "price": "$8.76",
+        "price": 49,
         "featured": false,
         "img_main": "https://i.ibb.co/JK8mLQp/BOT11-01-53379-1617771000.jpg",
         "img_curve": "https://i.ibb.co/q7mtMTb/BOT11-05-36623-1617771038.jpg"
@@ -129,7 +129,7 @@
         "_id": "80b92d64-deb4-4363-9645-530f56ef3d78",
         "name": "Sloth bear",
         "category": "dlandricke",
-        "price": "$1.58",
+        "price": 96,
         "featured": true,
         "img_main": "https://i.ibb.co/HhxHwGn/BT-AW21-DRE61-01-11478-1612934976.jpg",
         "img_curve": "https://i.ibb.co/WsGv79W/BT-AW21-DRE61-05-57334-1612934969.jpg"
@@ -138,7 +138,7 @@
         "_id": "0e13fe21-3d00-4e39-8f8a-da41e36751b5",
         "name": "Flamingo, greater",
         "category": "rwahnckef",
-        "price": "$7.93",
+        "price": 57,
         "featured": true,
         "img_main": "https://i.ibb.co/nfn9Ktj/BOT01-01-91126-1614311285.jpg",
         "img_curve": "https://i.ibb.co/Pg88Jxf/BOT01-05-40663-1614311278.jpg"
@@ -147,7 +147,7 @@
         "_id": "f7366bde-511d-458f-8304-2dde2f681f1b",
         "name": "Violet-crested turaco",
         "category": "gwasielewskig",
-        "price": "$7.90",
+        "price": 129,
         "featured": true,
         "img_main": "https://i.ibb.co/x2NqJ2r/BT-AW20-H09-Button-Down-Utility-Dress-in-Black-01-58224-1605828442.jpg",
         "img_curve": "https://i.ibb.co/FqcHKZ4/BT-AW20-H09-Button-Down-Utility-Dress-in-Black-05-13963-1605236120.jpg"
@@ -156,7 +156,7 @@
         "_id": "2f6aec3a-8072-4d06-ac64-8fdd7649f751",
         "name": "Roan antelope",
         "category": "znorthridgeh",
-        "price": "$1.49",
+        "price": 179,
         "featured": false,
         "img_main": "https://i.ibb.co/WBpcyKG/DRE38-01-95477-1623805428.jpg",
         "img_curve": "https://i.ibb.co/S5JKXS3/DRE38-05-87305-1623805428.jpg"
@@ -165,7 +165,7 @@
         "_id": "3d509d71-692b-441d-ac72-f384626953f6",
         "name": "Boubou, southern",
         "category": "cgodmani",
-        "price": "$6.18",
+        "price": 119,
         "featured": false,
         "img_main": "https://i.ibb.co/Jv9dLR9/BT-SS20-DRE65-01-72859-1623391100.jpg",
         "img_curve": "https://i.ibb.co/tDBn9n1/BT-SS20-DRE65-05-06484-1623391100.jpg"
@@ -174,7 +174,7 @@
         "_id": "0e0a6e6a-acba-401b-87e9-2d0db05ed4cb",
         "name": "Agile wallaby",
         "category": "dmclucasj",
-        "price": "$6.30",
+        "price": 59,
         "featured": false,
         "img_main": "https://i.ibb.co/FYP0nRN/KNI19-Black-01-36746-1615259718.jpg",
         "img_curve": "https://i.ibb.co/6HPgKDR/KNI19-Black-05-91423-1615259708.jpg"
@@ -183,7 +183,7 @@
         "_id": "cfb7ed9b-566e-4885-856a-9d517cbf21f3",
         "name": "Snowy sheathbill",
         "category": "cgordgek",
-        "price": "$2.20",
+        "price": 89,
         "featured": false,
         "img_main": "https://i.ibb.co/9y646Kc/BOT15-01-58884-1617771132.jpg",
         "img_curve": "https://i.ibb.co/PjmKt1w/BOT15-05-52327-1617771098.jpg"
@@ -192,7 +192,7 @@
         "_id": "ae627e40-79c2-477b-830f-08e8ed91809e",
         "name": "African lion",
         "category": "kgrigorushkinl",
-        "price": "$0.22",
+        "price": 67,
         "featured": false,
         "img_main": "https://i.ibb.co/DWxVTfg/BOT14-01-06296-1619743320.jpg",
         "img_curve": "https://i.ibb.co/rypgKj1/BOT14-05-84330-1619743320.jpg"
@@ -201,7 +201,7 @@
         "_id": "53a46b0d-a030-4b5c-91e6-717bf42ae6c1",
         "name": "Blue and gold macaw",
         "category": "leyeingtonm",
-        "price": "$0.31",
+        "price": 119,
         "featured": true,
         "img_main": "https://i.ibb.co/fHf6MLs/210203-BT-Lookbook-DAY2-SS19-H98-BLACK-2417-01-04279-1614312223.jpg",
         "img_curve": "https://i.ibb.co/ySfdNCF/DO7-ICE-BLUE-05-29798-1613707636.jpg"
@@ -210,7 +210,7 @@
         "_id": "0fcd5462-ccf0-4865-b6e1-15f64869ec66",
         "name": "Grey lourie",
         "category": "kwaddelln",
-        "price": "$9.44",
+        "price": 189,
         "featured": false,
         "img_main": "https://i.ibb.co/7gcb8qG/D04-ICE-BLUE-01-48575-1623807009.jpg",
         "img_curve": "https://i.ibb.co/hdfSg6Z/D04-ICE-BLUE-05-49555-1623807009.jpg"
@@ -219,7 +219,7 @@
         "_id": "05ccc687-05bb-4aec-8d8e-ecc01d200458",
         "name": "Screamer, southern",
         "category": "whorlocko",
-        "price": "$4.10",
+        "price": 58,
         "featured": false,
         "img_main": "https://i.ibb.co/88bmMQ5/TOP01-01-64575-1617770807.jpg",
         "img_curve": "https://i.ibb.co/ZYG0tKT/TOP01-05-34362-1617770796.jpg"

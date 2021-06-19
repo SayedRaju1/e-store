@@ -10,23 +10,63 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { AlarmTwoTone } from '@material-ui/icons';
 
 const ProductPage = () => {
     const { productId } = useParams();
     const [selectedProduct, setSelectedProduct] = useState({})
-    const [age, setAge] = React.useState('');
-
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
+    const [size, setSize] = useState("");
+    const [quantity, setQuantity] = useState(1)
+    const [amount, setAmount] = useState(0)
 
     useEffect(() => {
         mockData.forEach(item => {
             if (item._id === productId) {
                 setSelectedProduct(item)
+                // setAmount(item.price)
             }
-        });
+        }, []);
     })
+
+    const getAmount = () => {
+        setAmount(quantity * selectedProduct.price)
+    }
+    const handleIncrease = () => {
+        if (quantity < 20) {
+            setQuantity(quantity + 1)
+            getAmount()
+        }
+    }
+    const handleDecrease = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1)
+            getAmount()
+        }
+    }
+
+    const handleChange = (event) => {
+        setSize(event.target.value);
+    };
+
+    // ADD TO CART BUTTON
+    const cartItemInfo = { ...selectedProduct, size: size, quantity: quantity }
+    const localData = localStorage.getItem('cartItems')
+    const previousItems = JSON.parse(localData)
+    console.log(previousItems);
+    let totalItems;
+    if (previousItems) {
+        previousItems.push(cartItemInfo)
+        totalItems = previousItems
+    }
+    else {
+        totalItems = [cartItemInfo]
+    }
+    console.log(totalItems);
+    const handleAddToCart = () => {
+        // console.log(cartItemInfo);
+        localStorage.setItem('cartItems', JSON.stringify(totalItems))
+        alert("Item Added");
+    }
     return (
         <div className="container-fluid pt-5 productPageDiv">
             <div className="container">
@@ -55,23 +95,25 @@ const ProductPage = () => {
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             fullWidth
-                            value={age}
+                            value={size}
                             onChange={handleChange}
                             className="text-start"
                         >
-                            <MenuItem className="text-start" value={10}>S</MenuItem>
-                            <MenuItem value={20}>M</MenuItem>
-                            <MenuItem value={30}>L</MenuItem>
+                            <MenuItem value="XS">XS</MenuItem>
+                            <MenuItem value="S">S</MenuItem>
+                            <MenuItem value="M">M</MenuItem>
+                            <MenuItem value="L">L</MenuItem>
+                            <MenuItem value="XL">XL</MenuItem>
                         </Select>
                         <h6 className="mt-3">QUANTITY</h6>
                         <div className="d-flex justify-content-around align-items-center m-2 border">
-                            <p className="align-self-center">+</p>
-                            <p>1</p>
-                            <p>-</p>
+                            <p onClick={handleIncrease}>+</p>
+                            <p>{quantity}</p>
+                            <p onClick={handleDecrease}>-</p>
                         </div>
-                        <div className="d-flex border m-2">
-                            <p>Add to Cart</p>
-                            <p></p>
+                        <div className="d-flex justify-content-around border m-2">
+                            <p onClick={handleAddToCart}>Add to Cart</p>
+                            {/* <p>$ {amount}</p> */}
                         </div>
                     </div>
                 </div>
