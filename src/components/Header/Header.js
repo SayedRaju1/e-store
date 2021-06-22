@@ -29,10 +29,8 @@ const Header = () => {
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                             <div class="navbar-nav">
-                                <a className="nav-link active" aria-current="page" href="#">Home</a>
-                                <a className="nav-link" href="#">Features</a>
-                                <a className="nav-link" href="#">Pricing</a>
-                                <a className="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                <Link className="px-2 text-reset" to={"/shop"}>Shop</Link>
+                                <Link className="px-2 text-reset" to={"/cart"}>Cart</Link>
                             </div>
                         </div>
                     </div>

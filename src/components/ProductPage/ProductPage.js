@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './ProductPage.css'
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import mockData from '../../mock_data/MOCK_DATA.json';
 import Carousel from '../Carousel/Carousel';
 
@@ -52,7 +52,7 @@ const ProductPage = () => {
     const cartItemInfo = { ...selectedProduct, size: size, quantity: quantity }
     const localData = localStorage.getItem('cartItems')
     const previousItems = JSON.parse(localData)
-    console.log(previousItems);
+    // console.log(previousItems);
     let totalItems;
     if (previousItems) {
         previousItems.push(cartItemInfo)
@@ -65,7 +65,8 @@ const ProductPage = () => {
     const handleAddToCart = () => {
         // console.log(cartItemInfo);
         localStorage.setItem('cartItems', JSON.stringify(totalItems))
-        alert("Item Added");
+        // alert("Item Added");
+
     }
     return (
         <div className="container-fluid pt-5 productPageDiv">
@@ -107,13 +108,12 @@ const ProductPage = () => {
                         </Select>
                         <h6 className="mt-3">QUANTITY</h6>
                         <div className="d-flex justify-content-around align-items-center m-2 border">
-                            <p onClick={handleIncrease}>+</p>
+                            <h1 style={{ cursor: "pointer" }} onClick={handleIncrease}>+</h1>
                             <p>{quantity}</p>
-                            <p onClick={handleDecrease}>-</p>
+                            <h1 style={{ cursor: "pointer" }} onClick={handleDecrease}>-</h1>
                         </div>
                         <div className="d-flex justify-content-around border m-2">
-                            <p onClick={handleAddToCart}>Add to Cart</p>
-                            {/* <p>$ {amount}</p> */}
+                            <p style={{ cursor: "pointer" }} onClick={handleAddToCart}>Add to Cart</p>
                         </div>
                     </div>
                 </div>

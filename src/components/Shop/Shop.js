@@ -1,17 +1,14 @@
 import React from 'react';
-import './Featured.css'
 import mockData from '../../mock_data/MOCK_DATA.json';
 import ItemCard from '../ItemCard/ItemCard';
 
-
-const Featured = () => {
-    const products = mockData.sort(() => Math.random() - 0.5)
+const Shop = () => {
     return (
         <div className="container">
-            <h1 className="text-center">Featured Items</h1>
+            <h1 className="text-center">Shop</h1>
             <div className="row p-0 m-0">
                 {
-                    products.filter(product => product.featured === true).map(item => (
+                    mockData.map(item => (
                         <ItemCard key={item._id} item={item}></ItemCard>
                     ))
                 }
@@ -20,4 +17,4 @@ const Featured = () => {
     );
 };
 
-export default Featured;
+export default Shop;

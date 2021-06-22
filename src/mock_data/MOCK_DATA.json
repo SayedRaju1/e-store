@@ -76,7 +76,7 @@
         "name": "White-browed owl",
         "category": "telsdon8",
         "price": 109,
-        "featured": true,
+        "featured": false,
         "img_main": "https://i.ibb.co/720Mc20/H75-01-86833-1613706766.jpg",
         "img_curve": "https://i.ibb.co/W5YPG71/H75-05-10857-1613706759.jpg"
     },
