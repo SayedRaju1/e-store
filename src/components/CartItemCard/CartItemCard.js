@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import './CartItemCard.css'
 import {
@@ -7,22 +7,43 @@ import {
     Route,
     Link
 } from "react-router-dom";
+import { SubTotalContext } from '../../App';
 
-const CartItemCard = ({ item, handleRemove }) => {
+const CartItemCard = ({ item, handleRemove, trigger }) => {
+    const [subTotal, setSubTotal] = useContext(SubTotalContext)
     const [quantity, setQuantity] = useState(item.quantity)
     const [itemTotal, setItemTotal] = useState(item.price * item.quantity)
+
+    const localData = localStorage.getItem('cartItems')
+    const cartItems = JSON.parse(localData)
+    const [cartProducts, setCartProducts] = useState(cartItems)
+
 
     const quantityPlus = () => {
         setQuantity(quantity + 1)
         setItemTotal((quantity * item.price) + item.price)
+        cartItems.forEach((product, index, array) => {
+            if (product._id === item._id) {
+                array[index] = ({ ...product, item_total: (quantity * item.price) + item.price, quantity: quantity + 1 });
+                localStorage.setItem('cartItems', JSON.stringify(array))
+            }
+        })
+        trigger()
+
     }
     const quantityMinus = () => {
         setQuantity(quantity - 1)
         setItemTotal((quantity * item.price) - item.price)
+        cartItems.forEach((product, index, array) => {
+            if (product._id === item._id) {
+                array[index] = ({ ...product, item_total: (quantity * item.price) - item.price, quantity: quantity - 1 });
+                localStorage.setItem('cartItems', JSON.stringify(array))
+            }
+        })
+        trigger()
     }
 
     return (
-
         <div className="row cartItemCardDiv border-bottom">
             <div className="col-md-6 row">
                 <div className="col-md-3  ">

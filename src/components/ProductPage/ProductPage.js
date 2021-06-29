@@ -15,9 +15,10 @@ import { AlarmTwoTone } from '@material-ui/icons';
 const ProductPage = () => {
     const { productId } = useParams();
     const [selectedProduct, setSelectedProduct] = useState({})
-    const [size, setSize] = useState("");
+    const [size, setSize] = useState("M");
     const [quantity, setQuantity] = useState(1)
     const [amount, setAmount] = useState(0)
+    const [itemTotal, setItemTotal] = useState(selectedProduct.price)
 
     useEffect(() => {
         mockData.forEach(item => {
@@ -28,28 +29,38 @@ const ProductPage = () => {
         }, []);
     })
 
-    const getAmount = () => {
-        setAmount(quantity * selectedProduct.price)
+    const quantityPlus = () => {
+        setQuantity(quantity + 1)
+        setItemTotal((quantity * selectedProduct.price) + selectedProduct.price)
     }
-    const handleIncrease = () => {
-        if (quantity < 20) {
-            setQuantity(quantity + 1)
-            getAmount()
-        }
+    const quantityMinus = () => {
+        setQuantity(quantity - 1)
+        setItemTotal((quantity * selectedProduct.price) - selectedProduct.price)
     }
-    const handleDecrease = () => {
-        if (quantity > 1) {
-            setQuantity(quantity - 1)
-            getAmount()
-        }
-    }
+
+
+    // const getAmount = () => {
+    //     setAmount(quantity * selectedProduct.price)
+    // }
+    // const handleIncrease = () => {
+    //     if (quantity < 20) {
+    //         setQuantity(quantity + 1)
+    //         getAmount()
+    //     }
+    // }
+    // const handleDecrease = () => {
+    //     if (quantity > 1) {
+    //         setQuantity(quantity - 1)
+    //         getAmount()
+    //     }
+    // }
 
     const handleChange = (event) => {
         setSize(event.target.value);
     };
 
     // ADD TO CART BUTTON
-    const cartItemInfo = { ...selectedProduct, size: size, quantity: quantity }
+    const cartItemInfo = { ...selectedProduct, size: size, quantity: quantity, item_total: quantity * selectedProduct.price }
     const localData = localStorage.getItem('cartItems')
     const previousItems = JSON.parse(localData)
     // console.log(previousItems);
@@ -63,10 +74,7 @@ const ProductPage = () => {
     }
     console.log(totalItems);
     const handleAddToCart = () => {
-        // console.log(cartItemInfo);
         localStorage.setItem('cartItems', JSON.stringify(totalItems))
-        // alert("Item Added");
-
     }
     return (
         <div className="container-fluid pt-5 productPageDiv">
@@ -108,10 +116,11 @@ const ProductPage = () => {
                         </Select>
                         <h6 className="mt-3">QUANTITY</h6>
                         <div className="d-flex justify-content-around align-items-center m-2 border">
-                            <h1 style={{ cursor: "pointer" }} onClick={handleIncrease}>+</h1>
+                            <h1 style={{ cursor: "pointer" }} onClick={quantityPlus}>+</h1>
                             <p>{quantity}</p>
-                            <h1 style={{ cursor: "pointer" }} onClick={handleDecrease}>-</h1>
+                            <h1 style={{ cursor: "pointer" }} onClick={quantityMinus}>-</h1>
                         </div>
+                        <h3>${quantity * selectedProduct.price}</h3>
                         <div className="d-flex justify-content-around border m-2">
                             <p style={{ cursor: "pointer" }} onClick={handleAddToCart}>Add to Cart</p>
                         </div>
