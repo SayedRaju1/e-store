@@ -37,7 +37,7 @@ const Cart = () => {
     const handleRemove = (id) => {
         const newCartArray = [];
         cartItems.forEach(product => {
-            if (product._id !== id) {
+            if (product.cartId !== id) {
                 newCartArray.push(product)
             }
         });
@@ -47,39 +47,43 @@ const Cart = () => {
     }
 
     return (
-        <div className="container">
-            {
-                cartProducts && cartProducts.length > 0 ? <h1 className="text-center">This is Your Cart</h1> : <h1 className="text-center">Cart is empty</h1>
-            }
-            {
-                cartProducts && cartProducts.length > 0 ? cartProducts.map(item => (
-                    <CartItemCard key={item._id} item={item} handleRemove={handleRemove} trigger={trigger}></CartItemCard>
-                )) : <h1 className="text-center">Choose Something</h1>
-            }
-            <div className="d-flex justify-content-end">
+        <div className="container-fluid bg-light">
+            <div className="container">
                 {
-                    cartProducts && cartProducts.length > 0 ?
-                        <div className="col-md-5 d-flex flex-column justify-content-end">
-                            <div className="d-flex justify-content-between">
-                                <h6>Subtotal:</h6>
-                                <h6>$ {subTotal}</h6>
-                            </div>
-                            <div className="d-flex justify-content-between">
-                                <h6>Shipping:</h6>
-                                <h6>Free</h6>
-                            </div>
-                            <div className="d-flex justify-content-between">
-                                <h6>Tax(7.5%):</h6>
-                                <h6>$ {(subTotal * 1.075) - subTotal}</h6>
-                            </div>
-                            <div className="d-flex justify-content-between">
-                                <h6>Grand total:</h6>
-                                <h2>$ {subTotal * 1.075}</h2>
-                            </div>
-                        </div>
-                        :
-                        ""
+                    cartProducts && cartProducts.length > 0 ? <h1 className="text-center pt-5">This is Your Cart</h1> :
+                        <h1 className="text-center py-3">Cart is empty</h1>
                 }
+                {
+                    cartProducts && cartProducts.length > 0 ? cartProducts.map(item => (
+                        <CartItemCard key={item._id} item={item} handleRemove={handleRemove} trigger={trigger}></CartItemCard>
+                    )) : ""
+                }
+                <div className="d-flex justify-content-end">
+                    {
+                        cartProducts && cartProducts.length > 0 ?
+                            <div className="col-md-5 col-12 col-sm-8 d-flex flex-column ">
+                                <div className="d-flex justify-content-between">
+                                    <h6>Subtotal:</h6>
+                                    <h6>$ {subTotal}</h6>
+                                </div>
+                                <div className="d-flex justify-content-between">
+                                    <h6>Shipping:</h6>
+                                    <h6>Free</h6>
+                                </div>
+                                <div className="d-flex justify-content-between">
+                                    <h6>Tax(7.5%):</h6>
+                                    <h6>$ {((subTotal * 1.075) - subTotal).toFixed(2)}</h6>
+                                </div>
+                                <div className="d-flex justify-content-between">
+                                    <h4>You will Pay:</h4>
+                                    {/* <h2>$ {subTotal * 1.075}</h2> */}
+                                    <h4>$ {(subTotal * 1.075).toFixed(2)}</h4>
+                                </div>
+                            </div>
+                            :
+                            ""
+                    }
+                </div>
             </div>
         </div>
     );

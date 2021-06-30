@@ -11,6 +11,8 @@ import {
 } from "react-router-dom";
 import Header from './components/Header/Header';
 import Cart from './components/Cart/Cart';
+import NewCollection from './components/NewCollection/NewCollection';
+import Featured from './components/Featured/Featured';
 
 export const SubTotalContext = createContext();
 
@@ -23,6 +25,12 @@ function App() {
         <Switch>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/featured">
+            <Featured />
+          </Route>
+          <Route path="/new-collection">
+            <NewCollection />
           </Route>
           <Route path="/shop">
             <Shop />

@@ -38,29 +38,18 @@ const ProductPage = () => {
         setItemTotal((quantity * selectedProduct.price) - selectedProduct.price)
     }
 
-
-    // const getAmount = () => {
-    //     setAmount(quantity * selectedProduct.price)
-    // }
-    // const handleIncrease = () => {
-    //     if (quantity < 20) {
-    //         setQuantity(quantity + 1)
-    //         getAmount()
-    //     }
-    // }
-    // const handleDecrease = () => {
-    //     if (quantity > 1) {
-    //         setQuantity(quantity - 1)
-    //         getAmount()
-    //     }
-    // }
-
     const handleChange = (event) => {
         setSize(event.target.value);
     };
 
     // ADD TO CART BUTTON
-    const cartItemInfo = { ...selectedProduct, size: size, quantity: quantity, item_total: quantity * selectedProduct.price }
+    const cartItemInfo = {
+        ...selectedProduct,
+        size: size,
+        quantity: quantity,
+        item_total: quantity * selectedProduct.price,
+        cartId: Math.floor((Math.random() * 99999999999) + 10000)
+    }
     const localData = localStorage.getItem('cartItems')
     const previousItems = JSON.parse(localData)
     // console.log(previousItems);
@@ -77,7 +66,7 @@ const ProductPage = () => {
         localStorage.setItem('cartItems', JSON.stringify(totalItems))
     }
     return (
-        <div className="container-fluid pt-5 productPageDiv">
+        <div className="container-fluid pt-5 bg-light">
             <div className="container">
                 <div className="row">
                     <div className="col-md-4 py-3 carouselDiv">
@@ -120,9 +109,9 @@ const ProductPage = () => {
                             <p>{quantity}</p>
                             <h1 style={{ cursor: "pointer" }} onClick={quantityMinus}>-</h1>
                         </div>
-                        <h3>${quantity * selectedProduct.price}</h3>
                         <div className="d-flex justify-content-around border m-2">
                             <p style={{ cursor: "pointer" }} onClick={handleAddToCart}>Add to Cart</p>
+                            <p>${quantity * selectedProduct.price}</p>
                         </div>
                     </div>
                 </div>

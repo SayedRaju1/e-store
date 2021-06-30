@@ -67,7 +67,7 @@ const CartItemCard = ({ item, handleRemove, trigger }) => {
                 </div>
                 <div className="d-flex col-md-4">
                     <p>${itemTotal}</p>
-                    <p onClick={() => handleRemove(item._id)} className="px-2 mx-2 " style={{ cursor: "pointer" }}>Remove</p>
+                    <p onClick={() => handleRemove(item.cartId)} className="px-2 mx-2 " style={{ cursor: "pointer" }}>Remove</p>
                 </div>
             </div>
         </div>
