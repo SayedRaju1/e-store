@@ -1,16 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import './ProductPage.css'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 import { useHistory, useParams } from 'react-router-dom';
 import mockData from '../../mock_data/MOCK_DATA.json';
 import Carousel from '../Carousel/Carousel';
 
 import { makeStyles } from '@material-ui/core/styles';
+// import Snackbar from '@material-ui/core/Snackbar';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import { AlarmTwoTone } from '@material-ui/icons';
+// import { Button, Snackbar, IconButton, CloseIcon } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import SnackbarContent from '@material-ui/core/SnackbarContent';
 
 const ProductPage = () => {
     const { productId } = useParams();
@@ -64,7 +76,23 @@ const ProductPage = () => {
     console.log(totalItems);
     const handleAddToCart = () => {
         localStorage.setItem('cartItems', JSON.stringify(totalItems))
+        handleClick()
     }
+
+    //SNACKBAR
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
     return (
         <div className="container-fluid pt-5 bg-light ">
             <div className="container pt-5">
@@ -83,12 +111,8 @@ const ProductPage = () => {
                         <p>Luxe satin crepe, high-rise, unlined, coral pink midi skirt featuring multicolor waves print throughout, concealed elastic waist, and flattering bias cut.
                             55% Rayon | 45% Viscose.
                             Imported.</p>
-                        <h6>Care</h6>
-                        <p>Dry Clean Only.</p>
-                        <h6>Fit</h6>
-                        <p>Recommend ordering true to size.</p>
 
-                        <h6>SIZE</h6>
+                        <h6 className="mt-5">SIZE</h6>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
@@ -103,18 +127,45 @@ const ProductPage = () => {
                             <MenuItem value="L">L</MenuItem>
                             <MenuItem value="XL">XL</MenuItem>
                         </Select>
-                        <h6 className="mt-3">QUANTITY</h6>
-                        <div className="d-flex justify-content-around align-items-center m-2 border">
-                            <h1 style={{ cursor: "pointer" }} onClick={quantityPlus}>+</h1>
-                            <p>{quantity}</p>
-                            <h1 style={{ cursor: "pointer" }} onClick={quantityMinus}>-</h1>
+                        <h6 className="mt-5">QUANTITY</h6>
+                        <div className="d-flex justify-content-center">
+                            <div className="quantity d-flex align-items-center w-50 pt-3 justify-content-around border border-secondary">
+                                <p style={{ cursor: "pointer" }} onClick={quantityPlus}>+</p>
+                                <p >{quantity}</p>
+                                <p style={{ cursor: "pointer" }} onClick={quantityMinus}>-</p>
+                            </div>
                         </div>
-                        <div className="d-flex justify-content-around border m-2">
-                            <p style={{ cursor: "pointer" }} onClick={handleAddToCart}>Add to Cart</p>
+
+                        <div style={{ cursor: "pointer" }} onClick={handleAddToCart}
+                            className="add-cart-btn d-flex pt-3 justify-content-around align-items-center border mt-3 border-secondary">
+                            <p >Add to Cart</p>
                             <p>${quantity * selectedProduct.price}</p>
                         </div>
                     </div>
                 </div>
+            </div>
+            {/* SNACKBAR */}
+            <div>
+                <Snackbar
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'center',
+                    }}
+                    open={open}
+                    autoHideDuration={6000}
+                    onClose={handleClose}
+
+                >
+                    <SnackbarContent
+                        aria-describedby="message-id2"
+                        className="text-center"
+                        message={
+                            <span id="message-id2">
+                                <div className="text-center">Item Added to Cart</div>
+                            </span>
+                        }
+                    />
+                </Snackbar>
             </div>
         </div>
     );

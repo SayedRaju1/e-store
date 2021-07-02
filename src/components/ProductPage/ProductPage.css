@@ -2,6 +2,16 @@
     background: #f7f7f7;
 }
 
-/* .carouselDiv {
-    height: 80vh;
-} */
+.add-cart-btn:hover {
+    background: #000;
+    color: #fff
+}
+
+.quantity:hover {
+    background: #000;
+    color: #fff
+}
+
+.snackbar {
+    background: #000;
+}
