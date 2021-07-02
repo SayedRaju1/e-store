@@ -66,9 +66,9 @@ const ProductPage = () => {
         localStorage.setItem('cartItems', JSON.stringify(totalItems))
     }
     return (
-        <div className="container-fluid pt-5 bg-light">
-            <div className="container">
-                <div className="row">
+        <div className="container-fluid pt-5 bg-light ">
+            <div className="container pt-5">
+                <div className="row pt-5">
                     <div className="col-md-4 py-3 carouselDiv">
                         {/* <Carousel selectedProduct={selectedProduct} /> */}
                         <img className="w-100" src={selectedProduct.img_main} alt="" />

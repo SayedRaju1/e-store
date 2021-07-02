@@ -19,23 +19,23 @@ const Header = () => {
                 <Typography>LOGIN</Typography>
                 <Typography className="ms-3">CREATE ACCOUNT</Typography>
             </div>
-            <Navbar bg="white" variant="light" expand="lg" className="pt-2">
-                <div className="container">
-                    <Navbar.Brand className="" href=""><h1 className="brand-name">
-                        <Link to="/">
-                            <img style={{ height: "80px" }} src={logo} alt="logo" />
+            <Navbar bg="white" variant="light" expand="lg" className="  ">
+                <div className="container  ">
+                    <Navbar.Brand className="  p-0 m-0" href="">
+                        <Link className="" to="/">
+                            <img style={{ height: "70px" }} src={logo} alt="logo" />
                         </Link>
-                    </h1></Navbar.Brand>
+                    </Navbar.Brand>
                     <Link class="text-reset text-decoration-none d-xs-block d-md-none" to={"/cart"}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                         </svg>
                     </Link>
-                    <Navbar.Toggle className="border-0" aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse className="justify-content-end" id="basic-navbar-nav">
-                        <Nav >
-                            <Nav.Link className="text-dark">
-                                <Link class="text-reset text-decoration-none nav-link" to={"/"}><p className="px-3">HOME</p></Link>
+                    <Navbar.Toggle className=" " aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse className="   justify-content-end" id="basic-navbar-nav">
+                        <Nav className="  ">
+                            <Nav.Link className="   text-dark">
+                                <Link class="text-reset   text-decoration-none nav-link" to={"/"}><p className="px-3">HOME</p></Link>
                             </Nav.Link>
                             <Nav.Link className="text-dark">
                                 <Link class="text-reset text-decoration-none nav-link" to={"/new-collection"}><p className="px-3">NEW COLLECTION</p></Link>

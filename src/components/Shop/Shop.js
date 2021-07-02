@@ -4,8 +4,8 @@ import ItemCard from '../ItemCard/ItemCard';
 
 const Shop = () => {
     return (
-        <div className="container-fluid bg-light">
-            <div className="container">
+        <div className="container-fluid bg-light pt-5">
+            <div className="container pt-5">
                 <h1 className="text-center pt-5">Shop</h1>
                 <div className="row p-0 m-0">
                     {

@@ -7,8 +7,8 @@ const NewCollection = () => {
     console.log({ mockData });
     console.log({ newProducts });
     return (
-        <div className="container-fluid bg-light">
-            <div className="container">
+        <div className="container-fluid bg-light pt-5">
+            <div className="container pt-5">
                 <h1 className="text-center pt-5">New Collection</h1>
                 <div className="row p-0 m-0">
                     {

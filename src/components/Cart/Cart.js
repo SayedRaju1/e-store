@@ -47,18 +47,28 @@ const Cart = () => {
     }
 
     return (
-        <div className="container-fluid bg-light">
-            <div className="container">
+        <div className="container-fluid bg-light pt-5">
+            <div className="container pt-5">
                 {
                     cartProducts && cartProducts.length > 0 ? <h1 className="text-center pt-5">This is Your Cart</h1> :
                         <h1 className="text-center py-3">Cart is empty</h1>
                 }
+                <div className="row text-center border-bottom mt-5 d-none d-md-flex">
+                    <div className="col-md-5">
+                        < h6 style={{ position: 'relative', right: "90px" }}>Item</ h6>
+                    </div>
+                    <div className="col-md-7 row">
+                        <div className="col-md-4">< h6 style={{ position: 'relative', right: "10px" }}>Price</ h6></div>
+                        <div className="col-md-4">< h6 style={{ position: 'relative', right: "20px" }}>Quantity</ h6></div>
+                        <div className="col-md-4">< h6 style={{ position: 'relative', right: "55px" }}>Total</ h6></div>
+                    </div>
+                </div>
                 {
                     cartProducts && cartProducts.length > 0 ? cartProducts.map(item => (
                         <CartItemCard key={item._id} item={item} handleRemove={handleRemove} trigger={trigger}></CartItemCard>
                     )) : ""
                 }
-                <div className="d-flex justify-content-end">
+                <div className="d-flex justify-content-end p-3">
                     {
                         cartProducts && cartProducts.length > 0 ?
                             <div className="col-md-5 col-12 col-sm-8 d-flex flex-column ">
