@@ -1,36 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './ProductPage.css'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import mockData from '../../mock_data/MOCK_DATA.json';
-import Carousel from '../Carousel/Carousel';
-
-import { makeStyles } from '@material-ui/core/styles';
-// import Snackbar from '@material-ui/core/Snackbar';
-import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-// import { Button, Snackbar, IconButton, CloseIcon } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
+import { CurveContext } from '../../App';
+import { useContext } from 'react';
 
 const ProductPage = () => {
+    const [curve, setCurve] = useContext(CurveContext)
     const { productId } = useParams();
     const [selectedProduct, setSelectedProduct] = useState({})
     const [size, setSize] = useState("M");
     const [quantity, setQuantity] = useState(1)
-    const [amount, setAmount] = useState(0)
-    const [itemTotal, setItemTotal] = useState(selectedProduct.price)
 
     useEffect(() => {
         mockData.forEach(item => {
@@ -42,12 +26,15 @@ const ProductPage = () => {
     })
 
     const quantityPlus = () => {
-        setQuantity(quantity + 1)
-        setItemTotal((quantity * selectedProduct.price) + selectedProduct.price)
+        if (quantity < 10) {
+            setQuantity(quantity + 1)
+        }
+        else { alert("You can buy maximum 10 of this product.") }
     }
     const quantityMinus = () => {
-        setQuantity(quantity - 1)
-        setItemTotal((quantity * selectedProduct.price) - selectedProduct.price)
+        if (quantity > 1) {
+            setQuantity(quantity - 1)
+        }
     }
 
     const handleChange = (event) => {
@@ -98,12 +85,16 @@ const ProductPage = () => {
             <div className="container pt-5">
                 <div className="row pt-5">
                     <div className="col-md-4 py-3 carouselDiv">
-                        {/* <Carousel selectedProduct={selectedProduct} /> */}
-                        <img className="w-100" src={selectedProduct.img_main} alt="" />
+                        {
+                            curve ? <img className="w-100" src={selectedProduct.img_curve} alt="" /> :
+                                <img className="w-100" src={selectedProduct.img_main} alt="" />
+                        }
                     </div>
-                    <div className="col-md-4 py-3 carouselDiv">
-                        {/* <Carousel selectedProduct={selectedProduct} /> */}
-                        <img className="w-100 d-none d-xl-block d-lg-block d-md-block" src={selectedProduct.img_curve} alt="" />
+                    <div className="col-md-4 py-3 carouselDiv d-none d-xl-block d-lg-block d-md-block">
+                        {
+                            curve ? <img className="w-100" src={selectedProduct.img_main} alt="" /> :
+                                <img className="w-100 " src={selectedProduct.img_curve} alt="" />
+                        }
                     </div>
                     <div className="col-md-4 p-5 text-center">
                         <h2 className="mb-5">{selectedProduct.name}</h2>

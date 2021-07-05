@@ -7,9 +7,10 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import { SubTotalContext } from '../../App';
+import { CurveContext, SubTotalContext } from '../../App';
 
 const CartItemCard = ({ item, handleRemove, trigger }) => {
+    const [curve, setCurve] = useContext(CurveContext)
     const [subTotal, setSubTotal] = useContext(SubTotalContext)
     const [quantity, setQuantity] = useState(item.quantity)
     const [itemTotal, setItemTotal] = useState(item.price * item.quantity)
@@ -20,27 +21,31 @@ const CartItemCard = ({ item, handleRemove, trigger }) => {
 
 
     const quantityPlus = () => {
-        setQuantity(quantity + 1)
-        setItemTotal((quantity * item.price) + item.price)
-        cartItems.forEach((product, index, array) => {
-            if (product._id === item._id) {
-                array[index] = ({ ...product, item_total: (quantity * item.price) + item.price, quantity: quantity + 1 });
-                localStorage.setItem('cartItems', JSON.stringify(array))
-            }
-        })
-        trigger()
-
+        if (quantity < 10) {
+            setQuantity(quantity + 1)
+            setItemTotal((quantity * item.price) + item.price)
+            cartItems.forEach((product, index, array) => {
+                if (product._id === item._id) {
+                    array[index] = ({ ...product, item_total: (quantity * item.price) + item.price, quantity: quantity + 1 });
+                    localStorage.setItem('cartItems', JSON.stringify(array))
+                }
+            })
+            trigger()
+        }
+        else { alert("You can buy maximum 10 of this product.") }
     }
     const quantityMinus = () => {
-        setQuantity(quantity - 1)
-        setItemTotal((quantity * item.price) - item.price)
-        cartItems.forEach((product, index, array) => {
-            if (product._id === item._id) {
-                array[index] = ({ ...product, item_total: (quantity * item.price) - item.price, quantity: quantity - 1 });
-                localStorage.setItem('cartItems', JSON.stringify(array))
-            }
-        })
-        trigger()
+        if (quantity > 1) {
+            setQuantity(quantity - 1)
+            setItemTotal((quantity * item.price) - item.price)
+            cartItems.forEach((product, index, array) => {
+                if (product._id === item._id) {
+                    array[index] = ({ ...product, item_total: (quantity * item.price) - item.price, quantity: quantity - 1 });
+                    localStorage.setItem('cartItems', JSON.stringify(array))
+                }
+            })
+            trigger()
+        }
     }
 
     return (
@@ -48,7 +53,10 @@ const CartItemCard = ({ item, handleRemove, trigger }) => {
             <div className="col-md-6 row">
                 <div className="col-md-3 col-5">
                     <Link className="d-flex justify-content-center align-items-center text-reset" to={"/product/" + item._id}>
-                        <img className="w-75 py-3 img-fluid" src={item.img_main} alt="" />
+                        {
+                            curve ? <img className="w-75 py-3 img-fluid" src={item.img_curve} alt="" /> :
+                                <img className="w-75 py-3 img-fluid" src={item.img_main} alt="" />
+                        }
                     </Link>
                 </div>
                 <div className="col-md-9 col-7  d-flex justify-content-center flex-column">
@@ -66,14 +74,14 @@ const CartItemCard = ({ item, handleRemove, trigger }) => {
                     <p className="d-xs-block d-sm-block d-md-none">Quantity:</p><br />
                     <p className="">
                         <span className="px-2" style={{ cursor: "pointer" }} onClick={quantityPlus}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
                                 <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                 <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                             </svg>
                         </span>
                         {quantity}
                         <span className="px-2" style={{ cursor: "pointer" }} onClick={quantityMinus}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-square" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-dash-square" viewBox="0 0 16 16">
                                 <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                 <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                             </svg>

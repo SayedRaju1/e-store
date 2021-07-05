@@ -6,8 +6,7 @@ import React, { createContext, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Header from './components/Header/Header';
 import Cart from './components/Cart/Cart';
@@ -15,38 +14,42 @@ import NewCollection from './components/NewCollection/NewCollection';
 import Featured from './components/Featured/Featured';
 
 export const SubTotalContext = createContext();
+export const CurveContext = createContext();
 
 function App() {
   const [subTotal, setSubTotal] = useState(0)
+  const [curve, setCurve] = useState(false)
   return (
-    <SubTotalContext.Provider value={[subTotal, setSubTotal]}>
-      <Router className="app">
-        <Header />
-        <Switch>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/featured">
-            <Featured />
-          </Route>
-          <Route path="/new-collection">
-            <NewCollection />
-          </Route>
-          <Route path="/shop">
-            <Shop />
-          </Route>
-          <Route path="/product/:productId">
-            <ProductPage />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
-    </SubTotalContext.Provider>
+    <CurveContext.Provider value={[curve, setCurve]}>
+      <SubTotalContext.Provider value={[subTotal, setSubTotal]}>
+        <Router className="app">
+          <Header />
+          <Switch>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/featured">
+              <Featured />
+            </Route>
+            <Route path="/new-collection">
+              <NewCollection />
+            </Route>
+            <Route path="/shop">
+              <Shop />
+            </Route>
+            <Route path="/product/:productId">
+              <ProductPage />
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </Router>
+      </SubTotalContext.Provider>
+    </CurveContext.Provider>
   );
 }
 

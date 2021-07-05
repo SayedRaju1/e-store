@@ -56,13 +56,11 @@ const Cart = () => {
                 {
                     cartProducts && cartProducts.length > 0 ?
                         <div className="row text-center border-bottom mt-5 d-none d-md-flex">
-                            <div className="col-md-5">
-                                < h6 style={{ position: 'relative', right: "90px" }}>Item</ h6>
-                            </div>
+                            < h6 className="col-md-5 fw-bold">Item</ h6>
                             <div className="col-md-7 row">
-                                <div className="col-md-4">< h6 style={{ position: 'relative', right: "10px" }}>Price</ h6></div>
-                                <div className="col-md-4">< h6 style={{ position: 'relative', right: "20px" }}>Quantity</ h6></div>
-                                <div className="col-md-4">< h6 style={{ position: 'relative', right: "55px" }}>Total</ h6></div>
+                                < h6 className="col-md-4 fw-bold">Price</ h6>
+                                < h6 className="col-md-4 fw-bold">Quantity</ h6>
+                                < h6 className="col-md-4 fw-bold">Total</ h6>
                             </div>
                         </div>
                         :
