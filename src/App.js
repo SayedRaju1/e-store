@@ -12,6 +12,7 @@ import Header from './components/Header/Header';
 import Cart from './components/Cart/Cart';
 import NewCollection from './components/NewCollection/NewCollection';
 import Featured from './components/Featured/Featured';
+import NotFound from './components/NotFound/NotFound';
 
 export const SubTotalContext = createContext();
 export const CurveContext = createContext();
@@ -43,8 +44,11 @@ function App() {
             <Route path="/cart">
               <Cart />
             </Route>
-            <Route path="/">
+            <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </Router>

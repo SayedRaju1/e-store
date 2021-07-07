@@ -32,10 +32,10 @@ const Header = () => {
     };
     return (
         <div style={{ position: "fixed", width: "100vw" }} className="bg-dark">
-            <div className="d-flex justify-content-end text-white container">
-                <Typography>LOGIN</Typography>
-                <Typography className="ms-3">CREATE ACCOUNT</Typography>
-            </div>
+            {/* <div className="d-flex justify-content-end p-0 m-0 text-white container">
+                <p>LOGIN</p>
+                <p className="ms-3 align-self-center">CREATE ACCOUNT</p>
+            </div> */}
             <Navbar bg="white" variant="light" expand="lg" className="  ">
                 <div className="container  ">
                     <Navbar.Brand className="p-0 m-0" href="">
@@ -45,7 +45,8 @@ const Header = () => {
                     </Navbar.Brand>
 
                     <div className="d-flex switch-div align-items-center">
-                        <p className="switch-label">SLIM</p>
+                        <p className="switch-label d-md-none d-xs-block">S</p>
+                        <p className="switch-label d-none d-xl-block d-lg-block d-md-block">SLIM</p>
                         <Switch
                             className="switch"
                             size="small"
@@ -54,7 +55,8 @@ const Header = () => {
                             inputProps={{ 'aria-label': 'checkbox with default color' }}
                             label="Primary"
                         />
-                        <p className="switch-label">CURVE</p>
+                        <p className="switch-label d-md-none d-xs-block">C</p>
+                        <p className="switch-label d-none d-xl-block d-lg-block d-md-block">CURVE</p>
                     </div>
                     <Link class="text-reset text-decoration-none d-xs-block px-2 pt-1 d-md-none" to={"/cart"}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">

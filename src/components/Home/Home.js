@@ -5,10 +5,11 @@ import ItemCard from '../ItemCard/ItemCard';
 
 const Home = () => {
     return (
-        <div className="container-fluid bg-light mt-0 p-0">
+        <div className="container-fluid bg-light m-0 p-0">
             <div className="banner-img-div d-flex align-items-center">
                 <div className="container pt-5">
-                    <h1 className="text-white align-self-center pt-5">SABEN: Tea Rose Launching June 2nd</h1>
+                    <h1 className="text-white align-self-center pt-5">
+                        SABEN: Tea Rose Launching Tomorrow !!!</h1>
                 </div>
             </div>
             <div className="container pt-5">
